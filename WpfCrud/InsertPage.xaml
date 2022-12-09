@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCrud"
         mc:Ignorable="d"
-        Title="InsertPage" Height="300" Width="300">
+        Title="InsertPage" Height="300" Width="300"
+        WindowStartupLocation="CenterOwner"
+        >
     <Grid RenderTransformOrigin="0.5,0.5">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="119,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Member"/><LineBreak/><Run/></TextBlock>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="49,63,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="49,110,0,0" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top"/>
-        <TextBox x:Name="nametextBox" HorizontalAlignment="Left" Height="23" Margin="130,63,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nametextBox" HorizontalAlignment="Left" Height="23" Margin="130,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="gendercomboBox" HorizontalAlignment="Left" Margin="130,110,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.433,2.061">
             <ComboBox.Items>
                 <ComboBoxItem>Male</ComboBoxItem>
                 <ComboBoxItem>Female</ComboBoxItem>
             </ComboBox.Items>
         </ComboBox>
-        <Button x:Name="insertBtn" Content="Insert" HorizontalAlignment="Left" Margin="130,162,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="insertBtn" Content="Insert" HorizontalAlignment="Left" Margin="130,162,0,0" VerticalAlignment="Top" Width="120" Click="insertBtn_Click"/>
 
     </Grid>
 </Window>

@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCrud"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600">
+        Title="MainWindow" Height="600" Width="600"
+        WindowStartupLocation="CenterScreen"
+>
+
     <DockPanel>
         <DataGrid x:Name="myDataGrid" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*">
             <DataGrid.Columns >
@@ -18,12 +21,12 @@
                             <TextBlock Text="Action"></TextBlock>
                         </DataTemplate>
                     </DataGridTemplateColumn.HeaderTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="insertBtn" Content="Insert"></Button>
+                                <Button x:Name="insertBtn" Content="Insert" Click="insertBtn_Click"></Button>
+                                <Button x:Name="updateBtn" Content="Update" Click="updateBtn_Click"></Button>
+                                <Button x:Name="deleteBtn" Content="Delete" Click="deleteBtn_Click"></Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

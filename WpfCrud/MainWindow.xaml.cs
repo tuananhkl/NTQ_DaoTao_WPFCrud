@@ -36,32 +36,58 @@ namespace WpfCrud
 
         private void insertBtn_Click(object sender, RoutedEventArgs e)
         {
+            var memberId = GetSelectedMemberId();
+            if (memberId != 0)
+            {
+                MessageBox.Show("Can't click Insert button here");
+                return;
+            }
+
             InsertPage IPage = new InsertPage();
             IPage.ShowDialog();
         }
 
         private void updateBtn_Click(object sender, RoutedEventArgs e)
         {
-            int Id = (myDataGrid.SelectedItems as member).id;
+            var memberId = GetSelectedMemberId();
 
-            UpdatePage updatePage = new UpdatePage(Id);
+            UpdatePage updatePage = new UpdatePage(memberId);
+            if (memberId == 0)
+            {
+                return;
+            }
             updatePage.ShowDialog();
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            var memberId = (myDataGrid.SelectedItems as member).id;
+            var memberId = GetSelectedMemberId();
 
             var member = _db.members.FirstOrDefault(m => m.id == memberId);
             if (member is null)
             {
                 MessageBox.Show($"member with id {memberId} is not found");
+                return;
             }
 
             _db.members.Remove(member);
             _db.SaveChanges();
 
             MainWindow.dataGrid.ItemsSource = _db.members.ToList();
+        }
+
+        private int GetSelectedMemberId()
+        {
+            var selectedMember = myDataGrid.SelectedItem as member;
+
+            if (selectedMember != null)
+            {
+                var memberId = selectedMember.id;
+
+                return memberId;
+            }
+
+            return default;
         }
     }
 }
